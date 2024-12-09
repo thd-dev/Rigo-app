@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import Link from "next/link";
 
@@ -27,11 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script src="https://telegram.org/js/tele-web-app.js"></script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        
+      <Script src="https://telegram.org/js/tele-web-app.js" strategy="afterInteractive" />
         <div className="w-full flex justify-between fixed bottom-0 left-0 right-0 bg-slate-600 p-3">
           <Link href="/">Home</Link>
           <Link href="/plant">Plant</Link>
