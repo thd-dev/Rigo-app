@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,9 +26,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script src="https://telegram.org/js/tele-web-app.js"></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="w-full flex justify-between fixed bottom-0 left-0 right-0 bg-slate-600 p-3">
+          <Link href="/">Home</Link>
+          <Link href="/plant">Plant</Link>
+          <Link href="/friend">Friend</Link>
+          <Link href="/reward">Reward</Link>
+        </div>
         {children}
       </body>
     </html>
